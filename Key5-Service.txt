@@ -1,0 +1,13 @@
+Bing-1 : Ar5HnTh4NYVtUAXC3bPMleEnKNFK3CJfWPCoQmiKujbTevcJUWcPmDLFKZp4ZXa2
+Bing-2 : AovMCAdqu0Cc0a1AyDiSixbC0raz7HZdHwkAvR_jtDXh-_DiME4OiopQzZbGoST3
+Bing-3:  AoQgczvoi-oxwpJemTTu48SbwX7bqy-9Dpo93lz6jzqShxXQ4BGOy1AyQoQP6-_0
+Bing-4 : AsmTWpR0PhrehWaallNd_PN-yvUIwrvhuDYB5mio6fp-iMGxmasfrMhA2Hzg08AA
+Bing-5 : AtM2AxU0OD81AZx4trabJ7b0K7crzwzOGZzjv1YfYKUkXmuu7haAsZgZXM8Ca9L5
+
+Google : AIzaSyAPnpndStKXOKX4CKGPhMc-e9YcfVWjvyg
+
+MapQuest : L2glLMn9wYIpao9fTXQMHjlyH3kGRo3d
+
+Yahoo! PlaceFinder : dj0yJmk9Z1NlMkljejg2SDNhJmQ9WVdrOVFteGxTV05xTjJFbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD02Mg--
+
+OpenCage : 079756be0355e9362177f64a2c216d23
