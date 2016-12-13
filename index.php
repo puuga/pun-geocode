@@ -82,8 +82,11 @@ $arr = pg_fetch_all($result);
         })
         .done(function(json) {
           console.log("google - url: ", url);
-          console.log(JSON.stringify(json));
+          console.log(json);
           $("#google"+schoolID).html("done");
+
+          // save result to database
+          saveResult(json, "google", schoolID);
         })
         .fail(function(error) {
           console.log("google - url: ", url);
@@ -113,22 +116,18 @@ $arr = pg_fetch_all($result);
           url: url
 
         })
-        .done(function(parsedResponse,statusText,jqXhr) {
+        .done(function(json) {
           console.log("bing - url: ", url);
-          console.log(JSON.stringify(jqXhr));
+          console.log(json);
           $("#bing"+schoolID).html("done");
+
+          // save result to database
+          saveResult(json, "bing", schoolID);
         })
-        .fail(function(jqXHR, textStatus, errorThrown) {
+        .fail(function(error) {
           console.log("bing - url: ", url);
-          if (jqXHR.status == 200) {
-            console.log("body", jqXHR);
-            console.log("body", textStatus);
-            console.log("body", errorThrown);
-            $("#bing"+schoolID).html("error");
-          } else {
-            console.log("error", textStatus);
-            $("#bing"+schoolID).html("error");
-          }
+          console.log("error", error);
+          $("#bing"+schoolID).html("error");
         });
 
       }
@@ -147,8 +146,11 @@ $arr = pg_fetch_all($result);
         })
         .done(function(json) {
           console.log("yahoo - url: ", url);
-          console.log(JSON.stringify(json));
+          console.log(json);
           $("#yahoo"+schoolID).html("done");
+
+          // save result to database
+          saveResult(json, "yahoo", schoolID);
         })
         .fail(function(error) {
           console.log("yahoo - url: ", url);
@@ -169,8 +171,11 @@ $arr = pg_fetch_all($result);
         })
         .done(function(json) {
           console.log("mapQuest - url: ", url);
-          console.log(JSON.stringify(json));
+          console.log(json);
           $("#mapQuest"+schoolID).html("done");
+
+          // save result to database
+          saveResult(json, "mapQuest", schoolID);
         })
         .fail(function(error) {
           console.log("mapQuest - url: ", url);
@@ -193,13 +198,40 @@ $arr = pg_fetch_all($result);
         })
         .done(function(json) {
           console.log("openCage - url: ", url);
-          console.log(JSON.stringify(json));
+          console.log(json);
           $("#openCage"+schoolID).html("done");
+
+          // save result to database
+          saveResult(json, "openCage", schoolID);
         })
         .fail(function(error) {
           console.log("openCage - url: ", url);
           console.log("error", error);
           $("#openCage"+schoolID).html("error");
+        });
+      }
+
+      function saveResult(json, desc, schoolId) {
+        let jsonString = JSON.stringify(json);
+        $.ajax({
+          url: "service-save-result.php",
+          type: "POST",
+          data: {
+            result: jsonString,
+            desc: desc,
+            school_id: schoolId
+          }
+        })
+        .done(function(json) {
+          console.log("saveResult", desc);
+          console.log(json);
+
+          let text = $("#"+desc+schoolId).html();
+          $("#"+desc+schoolId).html(text+" saved");
+        })
+        .fail(function(error) {
+          console.log("saveResult", desc);
+          console.log("error", error);
         });
       }
     </script>
