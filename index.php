@@ -63,7 +63,7 @@ $arr = pg_fetch_all($result);
         console.log(schoolID, schoolName, subDistrict, district, province, postCode);
 
         reqGoogle(schoolID, schoolName, subDistrict, district, province, postCode);
-        // reqBing(schoolID, schoolName, subDistrict, district, province, postCode);
+        reqBing(schoolID, schoolName, subDistrict, district, province, postCode);
         reqYahoo(schoolID, schoolName, subDistrict, district, province, postCode);
         reqMapQuest(schoolID, schoolName, subDistrict, district, province, postCode);
         reqOpenCage(schoolID, schoolName, subDistrict, district, province, postCode)
@@ -100,21 +100,18 @@ $arr = pg_fetch_all($result);
         let bing5 = "AtM2AxU0OD81AZx4trabJ7b0K7crzwzOGZzjv1YfYKUkXmuu7haAsZgZXM8Ca9L5";
         // http://dev.virtualearth.net/REST/v1/Locations/524 เจริญสุข  ในเมือง เมืองกำแพงเพชร 62000?c=th&key=Ar5HnTh4NYVtUAXC3bPMleEnKNFK3CJfWPCoQmiKujbTevcJUWcPmDLFKZp4ZXa2
 
-        let url = "https://dev.virtualearth.net/REST/v1/Locations/";
+        // let url = "https://dev.virtualearth.net/REST/v1/Locations/";
+        // url += schoolName + " " + subDistrict + " " + district + " " + province + " " + postCode;
+        // url += "?o=json&c=th&key=" + bing1;
+
+        let url = "service-bing.php?q=";
         url += schoolName + " " + subDistrict + " " + district + " " + province + " " + postCode;
-        url += "?o=json&c=th&key=" + bing1;
+        url += "&key=" + bing1;
 
         // make request to service
         $.ajax({
-          url: url,
-          dataType: 'jsonp',
-          crossDomain: true,
-          converters: {
-            '* jsonp': function(result) {
-              // Do Stuff
-              return result;
-            }
-          }
+          url: url
+
         })
         .done(function(parsedResponse,statusText,jqXhr) {
           console.log("bing - url: ", url);
