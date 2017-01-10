@@ -73,7 +73,8 @@ $arr = pg_fetch_all($result);
         let google = "AIzaSyAPnpndStKXOKX4CKGPhMc-e9YcfVWjvyg";
         // https://maps.googleapis.com/maps/api/geocode/json?address=วิทยาลัยเทคนิคมีนบุรี+มีนบุรี+เขตมีนบุรี+กรุงเทพมหานคร+TH&key=AIzaSyAPnpndStKXOKX4CKGPhMc-e9YcfVWjvyg
         let url = "https://maps.googleapis.com/maps/api/geocode/json?address=";
-        url += schoolName + "+" + subDistrict + "+" + district + "+" + province + "+" + postCode;
+        // url += schoolName + "+" + subDistrict + "+" + district + "+" + province + "+" + postCode;
+        url += schoolName;
         url += "+TH&key=" + google;
 
         // make request to service
@@ -108,7 +109,8 @@ $arr = pg_fetch_all($result);
         // url += "?o=json&c=th&key=" + bing1;
 
         let url = "service-bing.php?q=";
-        url += schoolName + " " + subDistrict + " " + district + " " + province + " " + postCode;
+        // url += schoolName + " " + subDistrict + " " + district + " " + province + " " + postCode;
+        url += schoolName;
         url += "&key=" + bing1;
 
         // make request to service
@@ -137,7 +139,8 @@ $arr = pg_fetch_all($result);
         // http://query.yahooapis.com/v1/public/yql?q=select * from geo.places where text=" 70, 4, หาดกรวด, เมือง, อุตรดิตถ์, 53000"&format=xml
 
         let url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.places%20where%20text=\"";
-        url += schoolName + ", " + subDistrict + ", " + district + ", " + province + ", " + postCode;
+        // url += schoolName + ", " + subDistrict + ", " + district + ", " + province + ", " + postCode;
+        url += schoolName;
         url += "\"&format=json";
 
         // make request to service
@@ -163,7 +166,8 @@ $arr = pg_fetch_all($result);
         let mapQuest = "L2glLMn9wYIpao9fTXQMHjlyH3kGRo3d";
         // http://www.mapquestapi.com/geocoding/v1/address?key=L2glLMn9wYIpao9fTXQMHjlyH3kGRo3d&location=มหาวิทยาลัยราชภัฎเชียงราย,บ้านดู่,เมือง,เชียงราย
         let url = "http://www.mapquestapi.com/geocoding/v1/address?key=" + mapQuest;
-        url += "&location=" + schoolName + "," + subDistrict + "," + district + "," + province + "," + postCode;
+        // url += "&location=" + schoolName + "," + subDistrict + "," + district + "," + province + "," + postCode;
+        url += "&location=" + schoolName;
 
         // make request to service
         $.ajax({
@@ -189,7 +193,8 @@ $arr = pg_fetch_all($result);
         // http://api.opencagedata.com/geocode/v1/xml?q=113, 16, บ้านดู่, เมือง, เชียงราย, 57100&key=079756be0355e9362177f64a2c216d23&limit=1&no_annotations=1
 
         let url = "http://api.opencagedata.com/geocode/v1/xml?q=";
-        url += schoolName + "," + subDistrict + "," + district + "," + province + "," + postCode;
+        // url += schoolName + "," + subDistrict + "," + district + "," + province + "," + postCode;
+        url += schoolName ;
         url += "&key=" + openCage + "&limit=1&no_annotations=1";
 
         // make request to service
