@@ -11,8 +11,8 @@ header('Content-Type: application/json');
 
 switch ($desc) {
   case 'google':
-    $sql = "INSERT INTO \"public\".\"sc_google\" (\"id\",\"raw\",\"SchoolID\") ";
-    $sql .= "VALUES (nextval('sc_google_id_seq'::regclass),'$raw','$school_id')";
+    $sql = "INSERT INTO \"public\".\"2sc_google\" (\"id\",\"raw\",\"SchoolID\") ";
+    $sql .= "VALUES (nextval('2sc_google_id_seq'::regclass),'$raw','$school_id')";
     echo json_encode(
       [
         "desc"=>"google",
@@ -21,8 +21,8 @@ switch ($desc) {
     break;
 
   case 'bing':
-    $sql = "INSERT INTO \"public\".\"sc_bing\" (\"id\",\"raw\",\"SchoolID\") ";
-    $sql .= "VALUES (nextval('sc_google_id_seq'::regclass),'$raw','$school_id')";
+    $sql = "INSERT INTO \"public\".\"3sc_bing\" (\"id\",\"raw\",\"SchoolID\") ";
+    $sql .= "VALUES (nextval('3sc_google_id_seq'::regclass),'$raw','$school_id')";
     echo json_encode(
       [
         "desc"=>"bing",
@@ -31,8 +31,8 @@ switch ($desc) {
     break;
 
   case 'yahoo':
-    $sql = "INSERT INTO \"public\".\"sc_yahoo\" (\"id\",\"raw\",\"SchoolID\") ";
-    $sql .= "VALUES (nextval('sc_google_id_seq'::regclass),'$raw','$school_id')";
+    $sql = "INSERT INTO \"public\".\"2sc_yahoo\" (\"id\",\"raw\",\"SchoolID\") ";
+    $sql .= "VALUES (nextval('2sc_google_id_seq'::regclass),'$raw','$school_id')";
     echo json_encode(
       [
         "desc"=>"yahoo",
@@ -41,8 +41,8 @@ switch ($desc) {
     break;
 
   case 'mapQuest':
-    $sql = "INSERT INTO \"public\".\"sc_mapquest\" (\"id\",\"raw\",\"SchoolID\") ";
-    $sql .= "VALUES (nextval('sc_google_id_seq'::regclass),'$raw','$school_id')";
+    $sql = "INSERT INTO \"public\".\"2sc_mapquest\" (\"id\",\"raw\",\"SchoolID\") ";
+    $sql .= "VALUES (nextval('2sc_google_id_seq'::regclass),'$raw','$school_id')";
     echo json_encode(
       [
         "desc"=>"mapQuest",
@@ -51,8 +51,8 @@ switch ($desc) {
     break;
 
   case 'openCage':
-    $sql = "INSERT INTO \"public\".\"sc_opencage\" (\"id\",\"raw\",\"SchoolID\") ";
-    $sql .= "VALUES (nextval('sc_google_id_seq'::regclass),'$raw','$school_id')";
+    $sql = "INSERT INTO \"public\".\"2sc_opencage\" (\"id\",\"raw\",\"SchoolID\") ";
+    $sql .= "VALUES (nextval('2sc_google_id_seq'::regclass),'$raw','$school_id')";
     echo json_encode(
       [
         "desc"=>"openCage",
@@ -66,7 +66,7 @@ switch ($desc) {
 }
 
 function insertRawData($conn, $sql) {
-  // INSERT INTO "public"."sc_google" ("id","raw") VALUES (nextval('sc_google_id_seq'::regclass),'{"i":"i"}')
+  // INSERT INTO "public"."2sc_google" ("id","raw") VALUES (nextval('2sc_google_id_seq'::regclass),'{"i":"i"}')
   $result = pg_query($conn, $sql);
   if (!$result) {
     return false;
