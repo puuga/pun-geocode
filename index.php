@@ -192,7 +192,7 @@ $arr = pg_fetch_all($result);
         let openCage = "079756be0355e9362177f64a2c216d23";
         // http://api.opencagedata.com/geocode/v1/xml?q=113, 16, บ้านดู่, เมือง, เชียงราย, 57100&key=079756be0355e9362177f64a2c216d23&limit=1&no_annotations=1
 
-        let url = "http://api.opencagedata.com/geocode/v1/xml?q=";
+        let url = "http://api.opencagedata.com/geocode/v1/json?q=";
         // url += schoolName + "," + subDistrict + "," + district + "," + province + "," + postCode;
         url += schoolName ;
         url += "&key=" + openCage + "&limit=1&no_annotations=1";
